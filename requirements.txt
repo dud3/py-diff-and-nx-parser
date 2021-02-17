@@ -1,0 +1,21 @@
+I have a small project for python script that can analyze XML game data and identify all existing nodes/properties/values for that original XML.
+Then it can parse other XML game data (from higher game versions) and basically trim the nodes/properties/values that are not identified in the original XML.
+Finally, it will import the compatible higher version XML game data into the original XML and write as a separate file.
+
+The game itself and XML data is not very complex in my opinion but the schema of the XML data is a little strange which is why I struggled to build this tool myself.
+I will provide a sample for original/higher XML game data so that you can compare.
+If you are interested then I can send you a full dataset so you can take a deeper look before deciding.
+
+These are the basic scenarios when the script is cleaning the higher version XML data
+
+1. The xml file does not exist in the original XML directory
+	Result : Trim this entire xml file
+
+2. The xml file exists, but contains a node that does not exist in original XML file
+	Result : Trim that entire node
+
+3. The node exists, but there is a property that is not in the original XML node
+	Result : Trim the property
+
+4. The property exists but has a value that is not within the (min,max) values in the original XML property
+	Result : Set a default value that is within the original (min, max) usually 0 or 1
