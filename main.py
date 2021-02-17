@@ -6,7 +6,7 @@ from file import *
 from _xml import *
 
 if len(sys.argv) < 3:
-	exit("usage: from.xml to.xml")
+	exit("usage: path/to/from.xml path/to/to.xml")
 
 print(sys.argv, os.path.exists(sys.argv[1]))
 
@@ -28,3 +28,5 @@ nodeh.print()
 diff_folder([node], [nodeh], remove_folder)
 diff_files([node], [nodeh], lambda n0, n1, file : None, remove_file)
 diff_xml([node], [nodeh])
+
+print("system: execution finished")
