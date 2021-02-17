@@ -122,8 +122,9 @@ def mutate_xml(node0, node1, filename):
 	rootright = parseright.getroot()
 
 	print()
-	print(">>> Parsing: " + leftfile + " -> " + rightfile)
-	print('>>>')
+
+	print("Parsing: " + leftfile + " -> " + rightfile)
+	print("".join(map(lambda x: '~', range(len(leftfile) + len(rightfile) + 16))))
 
 	# Flatten nodes...
 	# traverse(list(rootleft), lambda node, i: rightnodes.append(node))

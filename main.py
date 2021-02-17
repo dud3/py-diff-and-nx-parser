@@ -16,17 +16,17 @@ topath = sys.argv[2]
 if (not (os.path.exists(frompath) and os.path.exists(topath))):
 	exit("error: one of the files does not exists!")
 
-node = Tree(frompath)
-nodeh = Tree(topath)
+fromnode = Tree(frompath)
+tonode = Tree(topath)
 
-path_to_node(node, frompath)
-path_to_node(nodeh, topath)
+path_to_node(fromnode, frompath)
+path_to_node(tonode, topath)
 
-node.print()
-nodeh.print()
+fromnode.print()
+tonode.print()
 
-diff_folder([node], [nodeh], remove_folder)
-diff_files([node], [nodeh], lambda n0, n1, file : None, remove_file)
-diff_xml([node], [nodeh])
+diff_folder([fromnode], [tonode], remove_folder)
+diff_files([fromnode], [tonode], lambda n0, n1, file : None, remove_file)
+diff_xml([fromnode], [tonode])
 
-print("system: execution finished")
+print("system: execution finished.")
