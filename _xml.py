@@ -95,7 +95,7 @@ def comaprenodes(nodes0, nodes1):
 
 			j += 1
 
-		nodes0 = knodes # Replace nodes
+		nodes0 = knodes # replace nodes
 	else:
 		for n0 in nodes0:
 			if hasdiffkeys(nodes1, n0) != None:

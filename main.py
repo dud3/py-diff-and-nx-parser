@@ -1,13 +1,26 @@
+import sys
+import os.path
 from tree import *
 from folder import *
 from file import *
 from _xml import *
 
-node = Tree("example/Character.wz")
-nodeh = Tree("example/(higher)Character.wz")
+if len(sys.argv) < 3:
+	exit("usage: from.xml to.xml")
 
-path_to_node(node, "example/Character.wz")
-path_to_node(nodeh, "example/(higher)Character.wz")
+print(sys.argv, os.path.exists(sys.argv[1]))
+
+frompath = sys.argv[1]
+topath = sys.argv[2]
+
+if (not (os.path.exists(frompath) and os.path.exists(topath))):
+	exit("error: one of the files does not exists!")
+
+node = Tree(frompath)
+nodeh = Tree(topath)
+
+path_to_node(node, frompath)
+path_to_node(nodeh, topath)
 
 node.print()
 nodeh.print()
